@@ -35,10 +35,10 @@ export default class Player extends Component {
 
     seek(time) {
         time = Math.round(time);
-        this.refs.audioElement && this.refs.audioElement.seek(0);
+        this.refs.audioElement && this.refs.audioElement.seek(time);
         this.setState({
             currentPosition: time,
-            paused: false
+            paused: false,
         });
     }
 
@@ -70,7 +70,7 @@ export default class Player extends Component {
                 paused: false,
                 totalLength: 1,
                 isChanging: false,
-                selectedTrack: this.state.selectedTrack - 1,
+                selectedTrack: this.state.selectedTrack + 1,
             }), 0);
         }
     }
